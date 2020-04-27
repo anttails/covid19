@@ -1,0 +1,22 @@
+<div class="card card-light border-{{theme}} flex-grow-1">
+    <div class="card-body d-flex" [ngClass]="{'py-2': small}">
+        <div class="row align-items-center flex-grow-1">
+            <div class="col-12 mr-auto col-lg text-center text-lg-left">
+                <span class="text-{{theme}}" [ngClass]="{'h4': !small && !hueg, 'h5': small && !hueg, 'h3': hueg && !small, 'point':clickable}" (click)="scrollTo()">
+                    <fa-icon [icon]="icon" class="mr-2"></fa-icon> {{'labels.card.title.'+text | translate}}</span>
+                <span class="text-muted small" *ngIf="note"><br>{{'labels.card.note.'+text | translate: {param1: total} }}</span>
+            </div>
+            <div class="col-12 ml-auto col-lg-auto text-center text-lg-right">
+                <span class="mb-0 font-weight-bold d-block" [ngClass]="{'h2': !small, 'h4': small}">
+                    <ng-container *ngIf="!currData"><span class="text-muted h5">N/A</span></ng-container>
+                {{ currData }}
+                <ng-container *ngIf="total"><small>/ {{total}}</small></ng-container>
+                </span>
+                <span [ngClass]="{'small': small}">
+                    <c19-difference *ngIf="currData && prevData" [prevData]="prevData" [currData]="currData" [upIsGood]="upIsGood">
+                    </c19-difference>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

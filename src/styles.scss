@@ -1,1 +1,39 @@
+// Cores http://jorgesampaio.arquivo.presidencia.pt/pt/republica/simbolos/bandeiras/index.html
+$primary: #003399;
+$success: #006600;
+$danger: #ff0000;
+$warning: #ffff00;
+$info: #336699;
+$dark: #000000;
+$enable-rounded: false;
+$link-color: $primary;
+$component-active-bg: $link-color;
+$custom-control-indicator-checked-disabled-bg: rgba($link-color, 0.5);
+$small-font-size: 85%;
+@import "~bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap");
+
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: "Manrope", sans-serif;
+}
+
+.loading-window {
+    z-index: $zindex-sticky - 1;
+    background: rgba($color: white, $alpha: 0.5);
+}
+
+.loading-window.error {
+    background: rgba($color: white, $alpha: 0.85);
+}
+
+.point {
+    cursor: pointer;
+}
+
+.apexcharts-tooltip {
+    padding: 0.5em 1em !important;
+    border-radius: 0 !important;
+    font-size: 0.8em !important;
+}

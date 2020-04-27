@@ -1,0 +1,89 @@
+{
+    "data": {
+        "ars": {
+            "arsnorte": "Norte",
+            "arscentro": "Centro",
+            "arslvt": "Lisboa e Vale do Tejo",
+            "arsalentejo": "Alentejo",
+            "arsalgarve": "Algarve",
+            "acores": "Açores",
+            "madeira": "Madeira"
+        },
+
+        "ageGroup": {
+            "0_9": "0 a 9 anos",
+            "10_19": "10 a 19 anos",
+            "20_29": "20 a 29 anos",
+            "30_39": "30 a 39 anos",
+            "40_49": "40 a 49 anos",
+            "50_59": "50 a 59 anos",
+            "60_69": "60 a 69 anos",
+            "70_79": "70 a 79 anos",
+            "80_plus": "80+ anos"
+        },
+
+        "sympthoms": {
+            "tosse": "Tosse",
+            "febre": "Febre",
+            "dificuldade_respiratoria": "Dificuldade respiratória",
+            "cefaleia": "Cefaleia (dores de cabeça)",
+            "dores_musculares": "Dores musculares",
+            "fraqueza_generalizada": "Fraqueza generalizada"
+        }
+    },
+
+    "labels": {
+        "ageGroup": "Grupo etário",
+        "card": {
+            "title": {
+                "confirmados": "Casos confirmados",
+                "internados": "Internados em enfermarias",
+                "internados_uci": "Internados em UCI",
+                "obitos": "Óbitos",
+                "recuperados": "Recuperados",
+                "lab": "Aguardam resultado laboratorial",
+                "suspeitos": "Total de casos suspeitos",
+                "vigilancia": "Em vigilância",
+                "n_confirmados": "Não confirmados",
+                "cadeias_transmissao": "Cadeias de transmissão activas",
+                "transmissao_importada": "Casos importados",
+                "sintomas": "Sintomas"
+            },
+            "note": {
+                "suspeitos": "Desde 01-01-2020"
+            }
+        },
+        "dataUntil": "Dados de Portugal até {{date}} obtidos do repositório da <b><a href=\"https://github.com/dssg-pt/covid19pt-data\" target=\"_blank\">DSSGP</a></b> via <b><a href=\"https://covid19-api.vost.pt/\" target=\"_blank\">API VOST PT</a></b>.",
+        "detail": {
+            "helth": "Por área regional de saúde",
+            "ageGroup": {
+                "dataTable": "Tabela de dados",
+                "newData": "Distribuição dos novos dados",
+                "relativeFrequency": "Gráficos de frequência relativa",
+                "title": "Por grupo etário"
+            }
+        },
+        "difference": {
+            "unchanged": "Inalterado"
+        },
+        "navbar": {
+            "title": "Dados de Portugal a "
+        },
+        "noData": "Sem dados",
+        "of": "de",
+        "total": "Total"
+    },
+
+
+    "error": {
+        "api": "Erro ao contactar a API. Consulte a consola para mais detalhes.",
+        "noAdditionalData": "Não existem dados adicionais.",
+        "noPrevData": "Não foi possível carregar dados anteriores para comparação."
+    },
+
+    "footer": "Página desenvolvida por <b><a href=\"https://anteropires.com\" target=\"_blank\">Antero Pires</a></b>, 2020. Dados compilados e fornecidos pelos grandes ao leme da <b><a href=\"https://www.dssg.pt/\" target=\"_blank\">DSSGP</a></b> e <b><a href=\"https://vost.pt/\" target=\"_blank\">VOST PT</a></b>. <br>Powered by Angular, ApexCharts, Bootstrap, FontAwesome e algo mais que me possa ter esquecido.<br>Nenhum estagiário foi posto em causa durante o desenvolvimento. Já sanidade... boa pergunta.",
+
+    "help": {
+        "graph": "Pode seleccionar uma secção dos gráficos para ver mais detalhes."
+    }
+}

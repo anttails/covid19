@@ -1,0 +1,171 @@
+<div class="row" id="{{type}}Det">
+    <div class="col-12">
+        <h2 class="text-{{theme}}">
+            <fa-icon [icon]="icon" class="mr-2"></fa-icon>
+            {{'labels.card.title.'+type | translate}}
+        </h2>
+    </div>
+</div>
+<div class="row" *ngIf="showArs">
+    <div class="col-12 mt-3 mb-1">
+        <h4 class="text-{{theme}}">
+            {{'labels.detail.helth' | translate}}
+        </h4>
+    </div>
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-sm table-borderless" *ngIf="currData">
+                <tr *ngFor="let ars of arsList">
+                    <td>{{'data.ars.'+ars | translate}}</td>
+                    <td class="align-middle text-right small text-{{theme}}">{{currData[mode + ars] / currData[type] * 100 | number : '1.0-2'}}%</td>
+                    <td class="w-50 align-middle">
+                        <ngb-progressbar type="{{theme}}" [value]="currData[mode + ars]" [max]="currData[type]"></ngb-progressbar>
+                    </td>
+                    <td class="text-right align-bottom">
+                        {{currData[mode + ars] || 'labels.noData' | translate }}
+                    </td>
+                    <td class="small align-bottom" *ngIf="currData && prevData">
+                        <c19-difference [prevData]="prevData[mode + ars]" [currData]="currData[mode + ars]" [upIsGood]="upIsGood"></c19-difference>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="showAge">
+    <div class="row">
+        <div class="col-12 mt-3 mb-1">
+            <h4 class="text-{{theme}}">
+                {{'labels.detail.ageGroup.title' | translate}}
+            </h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" *ngIf="prevData">
+            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.newData' | translate}}</h6>
+            <small class="text-muted"><fa-icon [icon]="helpIcon" class="mr-1"></fa-icon> {{'help.graph' | translate}}</small>
+        </div>
+    </div>
+    <div class="form-row row" *ngIf="prevData">
+        <div class="mx-auto col-4 col-sm-3 col-md-2">
+            <apx-chart [series]="ageChartNewM" [chart]="ncChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="ncChartOptions?.legend" [dataLabels]="ncChartOptions?.dataLabels" [plotOptions]="ncChartOptions?.plotOptions" [responsive]="ncChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center">
+                <fa-icon [icon]="maleIcon"></fa-icon>
+            </h2>
+        </div>
+        <div class="mx-auto col-4 col-sm-3 col-md-2">
+            <apx-chart [series]="ageChartNewF" [chart]="ncChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="ncChartOptions?.legend" [dataLabels]="ncChartOptions?.dataLabels" [plotOptions]="ncChartOptions?.plotOptions" [responsive]="ncChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center">
+                <fa-icon [icon]="femaleIcon"></fa-icon>
+            </h2>
+        </div>
+        <div class="mx-auto col-6 col-sm-3 col-md-2">
+            <apx-chart [series]="ageChartNewAll" [chart]="ncChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="ncChartOptions?.legend" [dataLabels]="ncChartOptions?.dataLabels" [plotOptions]="ncChartOptions?.plotOptions" [responsive]="ncChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center font-weight-bold text-uppercase">
+                {{'labels.total' | translate}}
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.dataTable' | translate}}</h6>
+        </div>
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-sm" *ngIf="currData">
+                    <thead>
+                        <tr>
+                            <th>{{'labels.ageGroup' | translate}}</th>
+                            <th class="text-right">
+                                <fa-icon [icon]="maleIcon" size="lg"></fa-icon>
+                            </th>
+                            <th *ngIf="currData && prevData"></th>
+                            <th class="text-right">
+                                <fa-icon [icon]="femaleIcon" size="lg"></fa-icon>
+                            </th>
+                            <th *ngIf="currData && prevData"></th>
+                            <th class="text-right">{{'labels.total' | translate}}</th>
+                            <th *ngIf="currData && prevData"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let age of ageGroup">
+                            <td class="text-nowrap">{{'data.ageGroup.'+age | translate}}</td>
+                            <td class="text-right">{{currData[mode + age+'_m']}}</td>
+                            <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_m']" [prevData]="prevData[mode + age+ '_m']" [currData]="currData[mode + age+ '_m']" [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                            <td class="text-right">{{currData[mode + age+'_f']}}</td>
+                            <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_f']" [prevData]="prevData[mode + age+ '_f']" [currData]="currData[mode + age+ '_f']" [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                            <td class="text-right">{{currData[mode + age+'_m'] + currData[mode + age+'_f']}}</td>
+                            <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_m'] && currData[mode + age+ '_f'] && prevData[mode + age+ '_f']" [prevData]="prevData[mode + age+ '_m'] + prevData[mode + age+ '_f']" [currData]="currData[mode + age+ '_m'] + currData[mode + age+ '_f']"
+                                    [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-nowrap font-weight-bold">{{'labels.total' | translate}}</td>
+                            <td class="text-right font-weight-bold align-bottom">{{currData[mode+'m']}}</td>
+                            <td class="small align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode+ 'm'] && prevData[mode+ 'm']" [prevData]="prevData[mode+ 'm']" [currData]="currData[mode+ 'm']" [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                            <td class="text-right font-weight-bold align-bottom">{{currData[mode+'f']}}</td>
+                            <td class="small align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode+ 'f'] && prevData[mode+ 'f']" [prevData]="prevData[mode+ 'f']" [currData]="currData[mode+ 'f']" [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                            <td class="text-right font-weight-bold align-bottom">{{currData[mode+'m'] + currData[mode+'f']}}</td>
+                            <td class="small align-bottom" *ngIf="currData && prevData">
+                                <c19-difference *ngIf="currData[mode+ 'm'] && prevData[mode+ 'm'] && currData[mode+ 'f'] && prevData[mode+ 'f']" [prevData]="prevData[mode+ 'm'] + prevData[mode+ 'f']" [currData]="currData[mode+ 'm'] + currData[mode+
+                            'f']" [upIsGood]="upIsGood"></c19-difference>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.relativeFrequency' | translate}}</h6>
+            <small class="text-muted"><fa-icon [icon]="helpIcon" class="mr-1"></fa-icon> {{'help.graph' | translate}}</small>
+        </div>
+    </div>
+    <div class="form-row row">
+        <div class="mx-auto col-6 col-sm-4 col-md-4">
+            <apx-chart [series]="ageChartM" [chart]="frChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="frChartOptions?.legend" [dataLabels]="frChartOptions?.dataLabels" [plotOptions]="frChartOptions?.plotOptions" [responsive]="frChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center">
+                <fa-icon [icon]="maleIcon"></fa-icon>
+            </h2>
+        </div>
+        <div class="mx-auto col-6 col-sm-4 col-md-4">
+            <apx-chart [series]="ageChartF" [chart]="frChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="frChartOptions?.legend" [dataLabels]="frChartOptions?.dataLabels" [plotOptions]="frChartOptions?.plotOptions" [responsive]="frChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center">
+                <fa-icon [icon]="femaleIcon"></fa-icon>
+            </h2>
+        </div>
+        <div class="mx-auto col-8 col-sm-4 col-md-4">
+            <apx-chart [series]="ageChartAll" [chart]="frChartOptions?.chart" [labels]="ageChartLabels" [theme]="frChartTheme" [legend]="frChartOptions?.legend" [dataLabels]="frChartOptions?.dataLabels" [plotOptions]="frChartOptions?.plotOptions" [responsive]="frChartOptions?.responsive"
+                [tooltip]="chartTooltip"></apx-chart>
+            <h2 class="text-center font-weight-bold text-uppercase">
+                {{'labels.total' | translate}}
+            </h2>
+        </div>
+    </div>
+</ng-container>
+<div class="row" *ngIf="!showArs && !showAge">
+    <div class="col-12 mt-3 mb-1">
+        <h4>
+            {{'error.noAdditionalData' | translate}}
+        </h4>
+    </div>
+</div>
+<hr>

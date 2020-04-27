@@ -1,0 +1,137 @@
+<nav class="navbar sticky-top navbar-light bg-light py-1 px-2">
+    <a class="navbar-brand text-uppercase mr-2" href="/">COVID19</a>
+    <div class="mr-sm-auto" *ngIf="currData">
+        <span class="d-sm-inline d-none">{{'labels.navbar.title' | translate}}</span> {{currData?.data}}
+    </div>
+    <div class="ml-2">
+        <div class="btn-group btn-group-sm btn-group-toggle" ngbRadioGroup name="lang" [(ngModel)]="lang" (change)="setLang()">
+            <label ngbButtonLabel class="btn-outline-primary text-uppercase" *ngFor="let lang of langs">
+              <input ngbButton type="radio" [value]="lang">{{lang}}
+            </label>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid container-xl mt-2" *ngIf="currData">
+    <div class="row" *ngIf="currData && !prevData">
+        <div class="col-12">
+            <div class="alert alert-warning" role="alert">
+                <fa-icon [icon]="warning" class="mr-2"></fa-icon>
+                {{'error.noPrevData'|translate}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-stretch">
+        <div class="col-12 col-sm-6 col-md-8 d-flex flex-column">
+            <div class="row flex-fill p-2 pr-sm-2 pb-sm-2 pt-sm-2 pl-sm-3">
+                <c19-big-card [currData]="currData?.confirmados" [prevData]="prevData?.confirmados" [icon]="confirmados" text="confirmados" theme="primary" hueg="true" clickable="true">
+                </c19-big-card>
+            </div>
+            <div class="row flex-fill p-2 pr-sm-2 pt-sm-2 pb-sm-2 pl-sm-3 align-items-stretch">
+                <div class="col-12 col-md-6 p-0 pb-2 pb-md-0 pr-md-2 d-flex">
+                    <c19-big-card [currData]="currData?.internados - currData?.internados_uci" [prevData]="prevData?.internados - prevData?.internados_uci" [icon]="internados" [total]="currData?.internados" text="internados" theme="info" small="true">
+                    </c19-big-card>
+                </div>
+                <div class="col-12 col-md-6 p-0 pt-2 pt-md-0 pl-md-2 d-flex">
+                    <c19-big-card [currData]="currData?.internados_uci" [prevData]="prevData?.internados_uci" [icon]="uci" [total]="currData?.internados" text="internados_uci" theme="danger" small="true">
+                    </c19-big-card>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex flex-column">
+            <div class="row flex-fill p-2 pl-sm-2 pb-sm-2 pt-sm-2 pr-sm-3">
+                <c19-big-card [currData]="currData?.recuperados" [prevData]="prevData?.recuperados" [icon]="recuperados" text="recuperados" theme="success" upIsGood="true" clickable="true">
+                </c19-big-card>
+            </div>
+            <div class=" row flex-fill p-2 pl-sm-2 pt-sm-2 pb-sm-2 pr-sm-3">
+                <c19-big-card [currData]="currData?.obitos" [prevData]="prevData?.obitos" [icon]="obitos" text="obitos" theme="dark" clickable="true">
+                </c19-big-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-stretch mt-2">
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3">
+            <c19-big-card [currData]="currData?.lab" [prevData]="prevData?.lab" [icon]="lab" text="lab" theme="info" small="true">
+            </c19-big-card>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pr-sm-3 pr-md-2">
+            <c19-big-card [currData]="currData?.vigilancia" [prevData]="prevData?.vigilancia" [icon]="vigilancia" text="vigilancia" theme="danger" small="true">
+            </c19-big-card>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3 pl-md-2 pr-md-3">
+            <c19-big-card [currData]="currData?.n_confirmados" [prevData]="prevData?.n_confirmados" [icon]="nConfirmados" text="n_confirmados" theme="success" small="true" upIsGood="true">
+            </c19-big-card>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-2 pl-md-3 pr-sm-3 pr-md-2">
+            <c19-big-card [currData]="currData?.suspeitos" [prevData]="prevData?.suspeitos" [icon]="suspeitos" text="suspeitos" theme="primary" small="true" note="true">
+            </c19-big-card>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3 pl-md-2">
+            <c19-big-card [currData]="currData?.transmissao_importada" [prevData]="prevData?.transmissao_importada" [icon]="transmissaoImportada" text="transmissao_importada" theme="primary" small="true">
+            </c19-big-card>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pr-sm-3">
+            <c19-big-card [currData]="currData?.cadeias_transmissao" [prevData]="prevData?.cadeias_transmissao" [icon]="cadeiasTransmissao" text="cadeias_transmissao" theme="danger" small="true">
+            </c19-big-card>
+        </div>
+    </div>
+
+    <div class="row small text-muted mt-2">
+        <div class="col-auto mr-auto" [innerHTML]="'labels.dataUntil'|translate: {date: currData?.data_dados}">
+            <!--<fa-icon [icon]="apiIcon" [fixedWidth]="true"></fa-icon>-->
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-info">
+                <fa-icon [icon]="sintomas" class="mr-2"></fa-icon>
+                {{'labels.card.title.sintomas' | translate}}
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                    <tr *ngFor="let atchim of sintomasLst">
+                        <td>{{'data.sympthoms.'+atchim | translate}}</td>
+                        <td class="align-middle text-right small text-info">{{currData['sintomas_'+atchim] * 100 | number : '1.0-2'}}%</td>
+                        <td class="w-50 align-middle">
+                            <ngb-progressbar type="info" [value]="currData['sintomas_'+atchim]" max="1"></ngb-progressbar>
+                        </td>
+                        <td class="small align-bottom" *ngIf="currData && prevData">
+                            <c19-difference [prevData]="prevData['sintomas_'+atchim]" [currData]="currData['sintomas_'+atchim]" percentMode="true"></c19-difference>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <c19-detail [currData]="currData" [prevData]="prevData" theme="primary" type="confirmados" [icon]="confirmados">
+    </c19-detail>
+    <c19-detail [currData]="currData" [prevData]="prevData" theme="success" type="recuperados" [icon]="recuperados" upIsGood="true">
+    </c19-detail>
+    <c19-detail [currData]="currData" [prevData]="prevData" theme="dark" type="obitos" [icon]="obitos">
+    </c19-detail>
+
+    <div class="row small my-2">
+        <div class="col-auto" [innerHTML]="'footer'|translate">
+        </div>
+    </div>
+
+</div>
+
+<div class="d-flex flex-column align-items-center justify-content-center modal-backdrop loading-window" [ngClass]="{'error':error}" *ngIf="(loading || error)">
+    <p>
+        <fa-icon [icon]="bigIcon" [pulse]="loading" size="6x"></fa-icon>
+    </p>
+    <p *ngIf="error">{{'error.api'|translate}}</p>
+</div>

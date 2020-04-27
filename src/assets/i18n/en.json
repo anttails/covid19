@@ -1,0 +1,89 @@
+{
+    "data": {
+        "ars": {
+            "arsnorte": "North",
+            "arscentro": "Center",
+            "arslvt": "Lisbon and Tagus Valley",
+            "arsalentejo": "Alentejo",
+            "arsalgarve": "Algarve",
+            "acores": "Azores",
+            "madeira": "Madeira"
+        },
+
+        "ageGroup": {
+            "0_9": "0 to 9",
+            "10_19": "10 to 19",
+            "20_29": "20 to 29",
+            "30_39": "30 to 39",
+            "40_49": "40 to 49",
+            "50_59": "50 to 59",
+            "60_69": "60 to 69",
+            "70_79": "70 to 79",
+            "80_plus": "80+"
+        },
+
+        "sympthoms": {
+            "tosse": "Cough",
+            "febre": "Fever",
+            "dificuldade_respiratoria": "Breathing difficulty",
+            "cefaleia": "Headache",
+            "dores_musculares": "Muscle pain",
+            "fraqueza_generalizada": "Overall weakness"
+        }
+    },
+
+    "labels": {
+        "ageGroup": "Age group",
+        "card": {
+            "title": {
+                "confirmados": "Confirmed cases",
+                "internados": "Admitted in nurseries",
+                "internados_uci": "Admitted in ICU",
+                "obitos": "Deaths",
+                "recuperados": "Recovered",
+                "lab": "Waiting for lab result",
+                "suspeitos": "Total suspect cases",
+                "vigilancia": "Under surveillance",
+                "n_confirmados": "Not confirmed",
+                "cadeias_transmissao": "Active transmission chains",
+                "transmissao_importada": "Imported cases",
+                "sintomas": "Sympthoms"
+            },
+            "note": {
+                "suspeitos": "Since 01-01-2020"
+            }
+        },
+        "dataUntil": "Portugal's data until {{date}} obtained from <b><a href=\"https://github.com/dssg-pt/covid19pt-data\" target=\"_blank\">DSSGP</a>'s</b> repository via <b><a href=\"https://covid19-api.vost.pt/\" target=\"_blank\">API VOST PT</a></b>.",
+        "detail": {
+            "helth": "By health area",
+            "ageGroup": {
+                "dataTable": "Data table",
+                "newData": "New data distribution",
+                "relativeFrequency": "Relative frequency charts",
+                "title": "By age group"
+            }
+        },
+        "difference": {
+            "unchanged": "No change"
+        },
+        "navbar": {
+            "title": "Portugal's data in "
+        },
+        "noData": "No data",
+        "of": "of",
+        "total": "Total"
+    },
+
+
+    "error": {
+        "api": "API Error. Please check console for more details.",
+        "noAdditionalData": "No additional data.",
+        "noPrevData": "Could not load previous data for comparison."
+    },
+
+    "footer": "Page developed by <b><a href=\"https://anteropires.com\" target=\"_blank\">Antero Pires</a></b>, 2020. Data compiled and provided by the great folks at <b><a href=\"https://www.dssg.pt/\" target=\"_blank\">DSSGP</a></b> and <b><a href=\"https://vost.pt/\" target=\"_blank\">VOST PT</a></b>. <br>Powered by Angular, ApexCharts, Bootstrap, FontAwesome and something else I may forgot.<br>No interns were harmed during development. As for sanity... good question.",
+
+    "help": {
+        "graph": "You can pick a chart section to view more details."
+    }
+}

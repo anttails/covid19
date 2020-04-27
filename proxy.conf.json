@@ -1,0 +1,7 @@
+{
+    "/api": {
+        "target": "https://covid19.anteropires.com/",
+        "secure": true,
+        "changeOrigin": true
+    }
+}
