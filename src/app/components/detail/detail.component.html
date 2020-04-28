@@ -17,7 +17,7 @@
             <table class="table table-sm table-borderless" *ngIf="currData">
                 <tr *ngFor="let ars of arsList">
                     <td>{{'data.ars.'+ars | translate}}</td>
-                    <td class="align-middle text-right small text-{{theme}}">{{currData[mode + ars] / currData[type] * 100 | number : '1.0-2'}}%</td>
+                    <td class="align-middle text-right small text-{{theme}}">{{currData[mode + ars] / currData[type] * 100 | number : '1.0-2' | removeComma}}%</td>
                     <td class="w-50 align-middle">
                         <ngb-progressbar type="{{theme}}" [value]="currData[mode + ars]" [max]="currData[type]"></ngb-progressbar>
                     </td>

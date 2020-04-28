@@ -81,7 +81,7 @@
         "noPrevData": "Não foi possível carregar dados anteriores para comparação."
     },
 
-    "footer": "Página desenvolvida por <b><a href=\"https://anteropires.com\" target=\"_blank\">Antero Pires</a></b>, 2020. Dados compilados e fornecidos pelos grandes ao leme da <b><a href=\"https://www.dssg.pt/\" target=\"_blank\">DSSGP</a></b> e <b><a href=\"https://vost.pt/\" target=\"_blank\">VOST PT</a></b>. <br>Powered by Angular, ApexCharts, Bootstrap, FontAwesome e algo mais que me possa ter esquecido.<br>Nenhum estagiário foi posto em causa durante o desenvolvimento. Já sanidade... boa pergunta.",
+    "footer": "Página desenvolvida por <b><a href=\"https://anteropires.com\" target=\"_blank\">Antero Pires</a></b>, 2020. Dados compilados e fornecidos pelos grandes ao leme da <b><a href=\"https://www.dssg.pt/\" target=\"_blank\">DSSGP</a></b> e <b><a href=\"https://vost.pt/\" target=\"_blank\">VOST PT</a></b>. <br>Powered by Angular, ApexCharts, Bootstrap, FontAwesome e algo mais que me possa ter esquecido.<br>Nenhum estagiário foi posto em causa durante o desenvolvimento. Já a sanidade... boa pergunta.",
 
     "help": {
         "graph": "Pode seleccionar uma secção dos gráficos para ver mais detalhes."

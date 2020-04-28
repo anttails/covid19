@@ -2,7 +2,7 @@
     <ng-container *ngIf="dif !== 0 else noChange">
         <span class="text-nowrap">
         <fa-icon [icon]="getIcon()" [ngClass]="{'text-success': (upIsGood && dif > 0) || (!upIsGood && dif < 0) ,'text-danger': (!upIsGood && dif > 0) || (upIsGood && dif < 0), 'text-muted': dif === 0}"></fa-icon>
-        {{dif | number : '1.0-2'}}<ng-container *ngIf="percentMode">%</ng-container> <span *ngIf="!percentMode && percent && percent !== 0" class="text-muted small"> {{percent | number : '1.0-2'}}%</span>
+        {{dif | number : '1.0-2' | removeComma}}<ng-container *ngIf="percentMode">%</ng-container> <span *ngIf="!percentMode && percent && percent !== 0" class="text-muted small"> {{percent | number : '1.0-2' | removeComma}}%</span>
         </span>
     </ng-container>
 </ng-container>

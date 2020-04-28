@@ -15,6 +15,7 @@ import { DifferenceComponent } from './components/difference/difference.componen
 import { DetailComponent } from './components/detail/detail.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { RemoveCommaPipe } from './pipes/remove-comma.pipe';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     BigCardComponent,
     DifferenceComponent,
-    DetailComponent
+    DetailComponent,
+    RemoveCommaPipe
   ],
   imports: [
     FormsModule,
