@@ -11,6 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class DashboardComponent implements OnInit {
 
+  LANG_KEY = 'lang';
+  lang;
+  langs = ['pt', 'en'];
+
   error = false;
   loading = true;
 
@@ -45,12 +49,10 @@ export class DashboardComponent implements OnInit {
     'fraqueza_generalizada'
   ]
 
+  fatalityRate: number;
 
   constructor(protected vostptService: VostptService, protected translate: TranslateService) { }
 
-  LANG_KEY = 'lang';
-  lang;
-  langs = ['pt', 'en'];
 
   ngOnInit() {
     this.lang = localStorage.getItem(this.LANG_KEY) || this.translate.getDefaultLang();
@@ -62,6 +64,7 @@ export class DashboardComponent implements OnInit {
         //this.apiIcon = faCheck;
         this.currData = data.latest;
         this.sintomasLst = this.sintomasLst.sort((a, b) => this.currData['sintomas_' + b] - this.currData['sintomas_' + a]);
+        this.fatalityRate = (this.currData['obitos'] / this.currData['confirmados']) * 100;
         this.prevData = data.comparison;
       },
       err => {

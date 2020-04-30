@@ -19,6 +19,7 @@ export class BigCardComponent implements OnInit {
   @Input() small = false;
   @Input() hueg = false; // Hueg like an XBOX
   @Input() note = false;
+  @Input() noteParam: string;
   @Input() clickable = false;
 
   constructor(protected pageScrollService: PageScrollService) { }

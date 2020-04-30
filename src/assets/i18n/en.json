@@ -50,7 +50,8 @@
                 "sintomas": "Sympthoms"
             },
             "note": {
-                "suspeitos": "Since 01-01-2020"
+                "suspeitos": "Since 01-01-2020",
+                "obitos": "<b>{{param}}%</b> fatality rate"
             }
         },
         "dataUntil": "Portugal's data until {{date}} obtained from <b><a href=\"https://github.com/dssg-pt/covid19pt-data\" target=\"_blank\">DSSGP</a>'s</b> repository via <b><a href=\"https://covid19-api.vost.pt/\" target=\"_blank\">API VOST PT</a></b>.",

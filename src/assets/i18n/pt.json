@@ -50,7 +50,8 @@
                 "sintomas": "Sintomas"
             },
             "note": {
-                "suspeitos": "Desde 01-01-2020"
+                "suspeitos": "Desde 01-01-2020",
+                "obitos": "Taxa de letalidade <b>{{param}}%</b>"
             }
         },
         "dataUntil": "Dados de Portugal até {{date}} obtidos do repositório da <b><a href=\"https://github.com/dssg-pt/covid19pt-data\" target=\"_blank\">DSSGP</a></b> via <b><a href=\"https://covid19-api.vost.pt/\" target=\"_blank\">API VOST PT</a></b>.",
