@@ -21,7 +21,7 @@
                     <td class="w-50 align-middle">
                         <ngb-progressbar type="{{theme}}" [value]="currData[mode + ars]" [max]="currData[type]"></ngb-progressbar>
                     </td>
-                    <td class="text-right align-bottom">
+                    <td class="text-right align-bottom font-weight-bold" [ngClass]="{'text-muted small': !currData[mode + ars] }">
                         {{currData[mode + ars] || 'labels.noData' | translate }}
                     </td>
                     <td class="small align-bottom" *ngIf="currData && prevData">
@@ -75,7 +75,7 @@
         </div>
         <div class="col-12">
             <div class="table-responsive">
-                <table class="table table-sm" *ngIf="currData">
+                <table class="table table-hover table-sm" *ngIf="currData">
                     <thead>
                         <tr>
                             <th>{{'labels.ageGroup' | translate}}</th>
@@ -94,15 +94,15 @@
                     <tbody>
                         <tr *ngFor="let age of ageGroup">
                             <td class="text-nowrap">{{'data.ageGroup.'+age | translate}}</td>
-                            <td class="text-right">{{currData[mode + age+'_m']}}</td>
+                            <td class="text-right align-bottom">{{currData[mode + age+'_m']}}</td>
                             <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
                                 <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_m']" [prevData]="prevData[mode + age+ '_m']" [currData]="currData[mode + age+ '_m']" [upIsGood]="upIsGood"></c19-difference>
                             </td>
-                            <td class="text-right">{{currData[mode + age+'_f']}}</td>
+                            <td class="text-right align-bottom">{{currData[mode + age+'_f']}}</td>
                             <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
                                 <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_f']" [prevData]="prevData[mode + age+ '_f']" [currData]="currData[mode + age+ '_f']" [upIsGood]="upIsGood"></c19-difference>
                             </td>
-                            <td class="text-right">{{currData[mode + age+'_m'] + currData[mode + age+'_f']}}</td>
+                            <td class="text-right font-weight-bold align-bottom">{{currData[mode + age+'_m'] + currData[mode + age+'_f']}}</td>
                             <td class="small align-bottom align-bottom" *ngIf="currData && prevData">
                                 <c19-difference *ngIf="currData[mode + age+ '_m'] && prevData[mode + age+ '_m'] && currData[mode + age+ '_f'] && prevData[mode + age+ '_f']" [prevData]="prevData[mode + age+ '_m'] + prevData[mode + age+ '_f']" [currData]="currData[mode + age+ '_m'] + currData[mode + age+ '_f']"
                                     [upIsGood]="upIsGood"></c19-difference>
