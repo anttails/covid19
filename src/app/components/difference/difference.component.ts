@@ -36,4 +36,8 @@ export class DifferenceComponent implements OnInit {
     return faEquals;
   }
 
+  printPlusSign(number: number) {
+    return number > 0 ? '+' : '';
+  }
+
 }
