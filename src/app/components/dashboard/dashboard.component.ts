@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VostptService } from 'src/app/services/vostpt.service';
-import { Update } from 'src/app/models/update.model';
+import { Update, SINTOMASLIST, ARSLIST, AGEGROUPLIST } from 'src/app/models/update.model';
 import { faExclamationTriangle, faSpinner, faVirus, faCross, faThumbsUp, faHospital, faProcedures, faVial, faExclamationCircle, faNotesMedical, faVirusSlash, faHeadSideVirus, faPlaneArrival, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -40,14 +40,7 @@ export class DashboardComponent implements OnInit {
 
   sintomas: IconDefinition = faHeadSideVirus;
 
-  sintomasLst: string[] = [
-    'tosse',
-    'febre',
-    'dificuldade_respiratoria',
-    'cefaleia',
-    'dores_musculares',
-    'fraqueza_generalizada'
-  ]
+  sintomasLst: string[] = SINTOMASLIST;
 
   fatalityRate: number;
 

@@ -84,3 +84,34 @@ export class Update {
     obitos_f: number;
     obitos_m: number;
 }
+
+export let ARSLIST: string[] = [
+    'arsnorte',
+    'arscentro',
+    'arslvt',
+    'arsalentejo',
+    'arsalgarve',
+    'acores',
+    'madeira'
+];
+
+export let AGEGROUPLIST: string[] = [
+    '0_9',
+    '10_19',
+    '20_29',
+    '30_39',
+    '40_49',
+    '50_59',
+    '60_69',
+    '70_79',
+    '80_plus'
+];
+
+export let SINTOMASLIST: string[] = [
+    'tosse',
+    'febre',
+    'dificuldade_respiratoria',
+    'cefaleia',
+    'dores_musculares',
+    'fraqueza_generalizada'
+]

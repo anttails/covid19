@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
-import { Update } from 'src/app/models/update.model';
+import { Update, ARSLIST, AGEGROUPLIST } from 'src/app/models/update.model';
 import { faInfo, faMars, faVenus, faInfoCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService, DefaultLangChangeEvent } from '@ngx-translate/core';
 import { ChartComponent } from 'ng-apexcharts';
@@ -29,27 +29,8 @@ export class DetailComponent implements OnInit {
   showArs: boolean = false;
   showAge: boolean = false;
 
-  arsList: string[] = [
-    'arsnorte',
-    'arscentro',
-    'arslvt',
-    'arsalentejo',
-    'arsalgarve',
-    'acores',
-    'madeira'
-  ];
-
-  ageGroup: string[] = [
-    '0_9',
-    '10_19',
-    '20_29',
-    '30_39',
-    '40_49',
-    '50_59',
-    '60_69',
-    '70_79',
-    '80_plus'
-  ];
+  arsList: string[] = ARSLIST;
+  ageGroup: string[] = AGEGROUPLIST;
 
   ageChartM: number[] = [];
   ageChartF: number[] = [];
