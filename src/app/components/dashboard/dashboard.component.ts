@@ -56,7 +56,6 @@ export class DashboardComponent implements OnInit {
         this.loading = false;
         //this.apiIcon = faCheck;
         this.currData = data.latest;
-        this.sintomasLst = this.sintomasLst.sort((a, b) => this.currData['sintomas_' + b] - this.currData['sintomas_' + a]);
         this.fatalityRate = (this.currData['obitos'] / this.currData['confirmados']) * 100;
         this.prevData = data.comparison;
       },

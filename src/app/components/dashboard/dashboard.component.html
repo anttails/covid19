@@ -97,22 +97,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="table-responsive">
-                <table class="table table-sm table-borderless table-hover">
-                    <tbody>
-                        <tr *ngFor="let atchim of sintomasLst">
-                            <td>{{'data.sympthoms.'+atchim | translate}}</td>
-                            <td class="align-middle text-right small text-info">{{currData['sintomas_'+atchim] * 100 | number : '1.0-2' | removeComma}}%</td>
-                            <td class="w-50 align-middle">
-                                <ngb-progressbar type="info" [value]="currData['sintomas_'+atchim]" max="1"></ngb-progressbar>
-                            </td>
-                            <td class="small align-bottom" *ngIf="currData && prevData">
-                                <c19-difference [prevData]="prevData['sintomas_'+atchim]" [currData]="currData['sintomas_'+atchim]" percentMode="true"></c19-difference>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <c19-percent-table [currData]="currData" [prevData]="prevData" type="sintomas" theme="info" translateKey="data.sympthoms" [dataset]="sintomasLst"></c19-percent-table>
         </div>
     </div>
 

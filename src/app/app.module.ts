@@ -16,6 +16,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { RemoveCommaPipe } from './pipes/remove-comma.pipe';
+import { PercentTableComponent } from './components/percent-table/percent-table.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -29,7 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BigCardComponent,
     DifferenceComponent,
     DetailComponent,
-    RemoveCommaPipe
+    RemoveCommaPipe,
+    PercentTableComponent
   ],
   imports: [
     FormsModule,
