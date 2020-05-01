@@ -20,6 +20,7 @@ export class BigCardComponent implements OnInit {
   @Input() hueg = false; // Hueg like an XBOX
   @Input() note = false;
   @Input() noteParam: string;
+  @Input() noteLink: string;
   @Input() clickable = false;
 
   constructor(protected pageScrollService: PageScrollService) { }
@@ -32,12 +33,21 @@ export class BigCardComponent implements OnInit {
 
   scrollTo() {
     if (this.clickable) {
-      this.pageScrollService.scroll({
-        document: document,
-        scrollTarget: '#' + this.text + 'Det',
-        scrollOffset: 56
-      });
+      this.scroll(this.text);
     }
   }
 
+  noteScrollTo() {
+    if (this.noteLink) {
+      this.scroll(this.noteLink);
+    }
+  }
+
+  private scroll(id: string) {
+    this.pageScrollService.scroll({
+      document: document,
+      scrollTarget: '#' + id + 'Det',
+      scrollOffset: 56
+    });
+  }
 }

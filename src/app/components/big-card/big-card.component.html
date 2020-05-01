@@ -5,7 +5,7 @@
                 <span class="text-{{theme}}" [ngClass]="{'h4': !small && !hueg, 'h5': small && !hueg, 'h3': hueg && !small, 'point':clickable}" (click)="scrollTo()">
                     <fa-icon [icon]="icon" class="mr-2"></fa-icon> {{'labels.card.title.'+text | translate}}</span>
                 <br>
-                <span class="text-muted small d-inline-block card-note" *ngIf="note" [innerHTML]="'labels.card.note.'+text | translate: {param: noteParam}"></span>
+                <span class="text-muted small d-inline-block card-note" *ngIf="note" (click)="noteScrollTo()" [innerHTML]="'labels.card.note.'+text | translate: {param: noteParam}" [ngClass]="{'point':noteLink}"></span>
             </div>
             <div class="col-12 ml-auto col-lg-auto text-center text-lg-right">
                 <span class="mb-0 font-weight-bold d-block" [ngClass]="{'h2': !small, 'h4': small}">
