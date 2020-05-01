@@ -20,7 +20,7 @@ export class DifferenceComponent implements OnInit {
   ngOnInit(): void {
     this.dif = this.currData - this.prevData;
     if (this.percentMode) {
-      this.dif *= 100;
+      this.dif = this.dif * 100;
     } else {
       this.percent = (this.currData - this.prevData) / this.prevData * 100;
     }

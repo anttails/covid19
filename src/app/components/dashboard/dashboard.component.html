@@ -46,7 +46,7 @@
                 </c19-big-card>
             </div>
             <div class=" row flex-fill p-2 pl-sm-2 pt-sm-2 pb-sm-2 pr-sm-3">
-                <c19-big-card [currData]="currData?.obitos" [prevData]="prevData?.obitos" [icon]="obitos" text="obitos" theme="dark" clickable="true" [note]="fatalityRate" [noteParam]="fatalityRate | number : '1.0-2'">
+                <c19-big-card [currData]="currData?.obitos" [prevData]="prevData?.obitos" [icon]="obitos" text="obitos" theme="dark" clickable="true" [note]="fatalityRate" [noteParam]="fatalityRate | number : '1.0-2'" noteLink="lethal">
                 </c19-big-card>
             </div>
         </div>
@@ -106,7 +106,7 @@
     </c19-detail>
     <c19-detail [currData]="currData" [prevData]="prevData" theme="success" type="recuperados" [icon]="recuperados" upIsGood="true">
     </c19-detail>
-    <c19-detail [currData]="currData" [prevData]="prevData" theme="dark" type="obitos" [icon]="obitos">
+    <c19-detail [currData]="currData" [prevData]="prevData" theme="dark" type="obitos" [icon]="obitos" showLethal="true">
     </c19-detail>
 
     <div class="row small my-2">

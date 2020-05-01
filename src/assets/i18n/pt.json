@@ -19,7 +19,12 @@
             "50_59": "50 a 59 anos",
             "60_69": "60 a 69 anos",
             "70_79": "70 a 79 anos",
-            "80_plus": "80+ anos"
+            "80_plus": "80+ anos",
+            "total": {
+                "all": "Taxa de letalidade",
+                "f": "Taxa feminina",
+                "m": "Taxa masculina"
+            }
         },
 
         "sympthoms": {
@@ -67,6 +72,9 @@
         "difference": {
             "unchanged": "Inalterado"
         },
+        "fatalityRate": "Taxa de letalidade",
+        "female": "Feminino",
+        "male": "Masculino",
         "navbar": {
             "title": "Dados de Portugal a "
         },

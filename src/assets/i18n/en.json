@@ -19,7 +19,12 @@
             "50_59": "50 to 59",
             "60_69": "60 to 69",
             "70_79": "70 to 79",
-            "80_plus": "80+"
+            "80_plus": "80+",
+            "total": {
+                "all": "Fatality rate",
+                "f": "Female rate",
+                "m": "Male rate"
+            }
         },
 
         "sympthoms": {
@@ -67,6 +72,9 @@
         "difference": {
             "unchanged": "No change"
         },
+        "fatalityRate": "Fatality rate",
+        "female": "Female",
+        "male": "Male",
         "navbar": {
             "title": "Portugal's data on "
         },

@@ -18,6 +18,9 @@ export class DetailComponent implements OnInit {
   @Input() upIsGood: boolean = false;
   @Input() icon: IconDefinition = faInfo;
 
+  @Input() showLethal: boolean = false;
+  comparisonPrefix: string = 'confirmados_';
+
   @ViewChildren(ChartComponent) charts: QueryList<any>;
 
   mode: string;

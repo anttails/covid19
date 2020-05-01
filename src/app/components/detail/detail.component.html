@@ -8,9 +8,9 @@
 </div>
 <div class="row" *ngIf="showArs">
     <div class="col-12 mt-3 mb-1">
-        <h4 class="text-{{theme}}">
+        <h3 class="text-{{theme}}">
             {{'labels.detail.helth' | translate}}
-        </h4>
+        </h3>
     </div>
     <div class="col-12">
         <div class="table-responsive">
@@ -37,14 +37,14 @@
 <ng-container *ngIf="showAge">
     <div class="row">
         <div class="col-12 mt-3 mb-1">
-            <h4 class="text-{{theme}}">
+            <h3 class="text-{{theme}}">
                 {{'labels.detail.ageGroup.title' | translate}}
-            </h4>
+            </h3>
         </div>
     </div>
     <div class="row">
         <div class="col-12" *ngIf="prevData">
-            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.newData' | translate}}</h6>
+            <h5 class="text-{{theme}}"> {{'labels.detail.ageGroup.newData' | translate}}</h5>
             <small class="text-muted"><fa-icon [icon]="helpIcon" class="mr-1"></fa-icon> {{'help.graph' | translate}}</small>
         </div>
     </div>
@@ -73,7 +73,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.dataTable' | translate}}</h6>
+            <h5 class="text-{{theme}}"> {{'labels.detail.ageGroup.dataTable' | translate}}</h5>
         </div>
         <div class="col-12">
             <div class="table-responsive">
@@ -135,7 +135,7 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <h6 class="text-{{theme}}"> {{'labels.detail.ageGroup.relativeFrequency' | translate}}</h6>
+            <h5 class="text-{{theme}}"> {{'labels.detail.ageGroup.relativeFrequency' | translate}}</h5>
             <small class="text-muted"><fa-icon [icon]="helpIcon" class="mr-1"></fa-icon> {{'help.graph' | translate}}</small>
         </div>
     </div>
@@ -165,9 +165,55 @@
 </ng-container>
 <div class="row" *ngIf="!showArs && !showAge">
     <div class="col-12 mt-3 mb-1">
-        <h4>
+        <h3>
             {{'error.noAdditionalData' | translate}}
-        </h4>
+        </h3>
     </div>
 </div>
+
+<ng-container *ngIf="showLethal">
+    <div class="row" id="lethalDet">
+        <div class="col-12">
+            <h3 class="text-{{theme}}">
+                {{'labels.fatalityRate' | translate}}
+            </h3>
+        </div>
+    </div>
+    <div class="row" *ngIf="showArs">
+        <div class="col-12">
+            <h5 class="text-{{theme}}">
+                {{'labels.detail.helth' | translate}}
+            </h5>
+        </div>
+        <div class="col-12">
+            <c19-percent-table [currData]="currData" [prevData]="prevData" [type]="type" theme="secondary" translateKey="data.ars" [dataset]="arsList" [comparisonPrefix]="comparisonPrefix"></c19-percent-table>
+        </div>
+    </div>
+    <div class="row" *ngIf="showAge">
+        <div class="col-12">
+            <h5 class="text-{{theme}}">
+                {{'labels.detail.ageGroup.title' | translate}}
+            </h5>
+        </div>
+        <div class="col-12">
+            <h6 class="font-weight-bold ml-1 mb-0 mt-1">
+                <fa-icon [icon]="maleIcon" size="lg" class="mr-1"></fa-icon>
+                {{'labels.male' | translate}}
+            </h6>
+            <c19-percent-table [currData]="currData" [prevData]="prevData" [type]="type" suffix="_m" theme="secondary" translateKey="data.ageGroup" [dataset]="ageGroup" [comparisonPrefix]="comparisonPrefix" totalKey="total.m"></c19-percent-table>
+        </div>
+        <div class="col-12">
+            <h6 class="font-weight-bold ml-1 mb-0 mt-1">
+                <fa-icon [icon]="femaleIcon" size="lg" class="mr-1"></fa-icon>
+                {{'labels.female' | translate}}
+            </h6>
+            <c19-percent-table [currData]="currData" [prevData]="prevData" [type]="type" suffix="_f" theme="secondary" translateKey="data.ageGroup" [dataset]="ageGroup" [comparisonPrefix]="comparisonPrefix" totalKey="total.f"></c19-percent-table>
+        </div>
+        <div class="col-12">
+            <h6 class="font-weight-bold ml-1 mb-0 mt-1">{{'labels.total' | translate}}</h6>
+            <c19-percent-table [currData]="currData" [prevData]="prevData" [type]="type" suffix="_m" suffix2="_f" theme="secondary" translateKey="data.ageGroup" [dataset]="ageGroup" [comparisonPrefix]="comparisonPrefix" totalKey="total.all"></c19-percent-table>
+        </div>
+    </div>
+</ng-container>
+
 <hr>

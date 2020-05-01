@@ -2,13 +2,13 @@
     <table class="table table-sm table-borderless table-hover">
         <tbody>
             <tr *ngFor="let atchim of lstAtchins">
-                <td>{{translateKey+'.'+atchim | translate}}</td>
-                <td class="align-middle text-right small text-{{theme}}">{{getNumber(currData,atchim) * 100 | number : '1.0-2' | removeComma}}%</td>
+                <td [ngClass]="{'font-weight-bold': atchim.total}">{{translateKey+'.'+atchim.key | translate}}</td>
+                <td class="align-middle text-right small text-{{theme}}" [ngClass]="{'font-weight-bold': atchim.total}">{{atchim.currValue * 100 | number : '1.0-2' | removeComma}}%</td>
                 <td class="w-50 align-middle">
-                    <ngb-progressbar [type]="theme" [value]="getNumber(currData,atchim)" max="1"></ngb-progressbar>
+                    <ngb-progressbar [type]="theme" [value]="atchim.currValue" max="1"></ngb-progressbar>
                 </td>
-                <td class="small align-bottom" *ngIf="currData && prevData">
-                    <c19-difference [prevData]="getNumber(prevData,atchim)" [currData]="getNumber(currData,atchim)" percentMode="true"></c19-difference>
+                <td class="small align-middle" *ngIf="currData && prevData">
+                    <c19-difference [prevData]="atchim.prevValue" [currData]="atchim.currValue" percentMode="true"></c19-difference>
                 </td>
             </tr>
         </tbody>
