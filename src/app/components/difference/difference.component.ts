@@ -10,8 +10,8 @@ export class DifferenceComponent implements OnInit {
 
   @Input() currData: number;
   @Input() prevData: number;
-  @Input() upIsGood = false;
-  @Input() percentMode = false;
+  @Input() upIsGood: boolean = false;
+  @Input() percentMode: boolean = false;
   dif: number;
   percent: number;
 

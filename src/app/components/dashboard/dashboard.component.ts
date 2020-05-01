@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VostptService } from 'src/app/services/vostpt.service';
 import { Update } from 'src/app/models/update.model';
-import { faExclamationTriangle, faSpinner, faVirus, faCross, faThumbsUp, faHospital, faProcedures, faVial, faExclamationCircle, faNotesMedical, faVirusSlash, faHeadSideVirus, faPlaneArrival, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle, faSpinner, faVirus, faCross, faThumbsUp, faHospital, faProcedures, faVial, faExclamationCircle, faNotesMedical, faVirusSlash, faHeadSideVirus, faPlaneArrival, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -11,36 +11,36 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class DashboardComponent implements OnInit {
 
-  LANG_KEY = 'lang';
-  lang;
-  langs = ['pt', 'en'];
+  LANG_KEY: string = 'lang';
+  lang: string;
+  langs: string[] = ['pt', 'en'];
 
-  error = false;
-  loading = true;
+  error: boolean = false;
+  loading: boolean = true;
 
-  //apiIcon = faHourglass;
-  bigIcon = faSpinner;
+  //apiIcon: IconDefinition = faHourglass;
+  bigIcon: IconDefinition = faSpinner;
 
   currData: Update;
   prevData: Update;
 
-  warning = faExclamationTriangle;
+  warning: IconDefinition = faExclamationTriangle;
 
-  confirmados = faVirus;
-  obitos = faCross;
-  recuperados = faThumbsUp;
-  internados = faHospital;
-  uci = faProcedures;
-  lab = faVial;
-  suspeitos = faExclamationCircle;
-  vigilancia = faNotesMedical;
-  nConfirmados = faVirusSlash;
-  cadeiasTransmissao = faUsers;
-  transmissaoImportada = faPlaneArrival;
+  confirmados: IconDefinition = faVirus;
+  obitos: IconDefinition = faCross;
+  recuperados: IconDefinition = faThumbsUp;
+  internados: IconDefinition = faHospital;
+  uci: IconDefinition = faProcedures;
+  lab: IconDefinition = faVial;
+  suspeitos: IconDefinition = faExclamationCircle;
+  vigilancia: IconDefinition = faNotesMedical;
+  nConfirmados: IconDefinition = faVirusSlash;
+  cadeiasTransmissao: IconDefinition = faUsers;
+  transmissaoImportada: IconDefinition = faPlaneArrival;
 
-  sintomas = faHeadSideVirus;
+  sintomas: IconDefinition = faHeadSideVirus;
 
-  sintomasLst = [
+  sintomasLst: string[] = [
     'tosse',
     'febre',
     'dificuldade_respiratoria',

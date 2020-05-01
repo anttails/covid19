@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChildren, QueryList } from '@angular/core';
 import { Update } from 'src/app/models/update.model';
-import { faInfo, faMars, faVenus, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faInfo, faMars, faVenus, faInfoCircle, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService, DefaultLangChangeEvent } from '@ngx-translate/core';
 import { ChartComponent } from 'ng-apexcharts';
 
@@ -15,21 +15,21 @@ export class DetailComponent implements OnInit {
   @Input() prevData: Update;
   @Input() type: string;
   @Input() theme: string;
-  @Input() upIsGood = false;
-  @Input() icon = faInfo;
+  @Input() upIsGood: boolean = false;
+  @Input() icon: IconDefinition = faInfo;
 
   @ViewChildren(ChartComponent) charts: QueryList<any>;
 
   mode: string;
 
-  maleIcon = faMars;
-  femaleIcon = faVenus;
-  helpIcon = faInfoCircle;
+  maleIcon: IconDefinition = faMars;
+  femaleIcon: IconDefinition = faVenus;
+  helpIcon: IconDefinition = faInfoCircle;
 
-  showArs = true;
-  showAge = true;
+  showArs: boolean = false;
+  showAge: boolean = false;
 
-  arsList = [
+  arsList: string[] = [
     'arsnorte',
     'arscentro',
     'arslvt',
@@ -39,7 +39,7 @@ export class DetailComponent implements OnInit {
     'madeira'
   ];
 
-  ageGroup = [
+  ageGroup: string[] = [
     '0_9',
     '10_19',
     '20_29',
@@ -51,16 +51,16 @@ export class DetailComponent implements OnInit {
     '80_plus'
   ];
 
-  ageChartM = [];
-  ageChartF = [];
-  ageChartAll = [];
-  ageChartNewM = [];
-  ageChartNewF = [];
-  ageChartNewAll = [];
-  ageChartLabels = [];
+  ageChartM: number[] = [];
+  ageChartF: number[] = [];
+  ageChartAll: number[] = [];
+  ageChartNewM: number[] = [];
+  ageChartNewF: number[] = [];
+  ageChartNewAll: number[] = [];
+  ageChartLabels: number[] = [];
 
-  frChartTheme = {};
-  frChartOptions = {
+  frChartTheme: any = {};
+  frChartOptions: any = {
     chart: {
       width: "100%",
       type: "pie",
@@ -114,7 +114,7 @@ export class DetailComponent implements OnInit {
     ]
   };
 
-  ncChartOptions = {
+  ncChartOptions: any = {
     chart: {
       width: "100%",
       type: "donut",
@@ -175,7 +175,7 @@ export class DetailComponent implements OnInit {
     ]
   };
 
-  chartTooltip = {
+  chartTooltip: any = {
     fillSeriesColor: true,
     theme: 'dark',
     custom: function ({ series, seriesIndex, dataPointIndex, w }) {

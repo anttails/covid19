@@ -16,20 +16,20 @@
         <div class="table-responsive">
             <table class="table table-sm table-borderless table-hover" *ngIf="currData">
                 <tbody>
+                    <tr *ngFor="let ars of arsList">
+                        <td>{{'data.ars.'+ars | translate}}</td>
+                        <td class="align-middle text-right small text-{{theme}}">{{currData[mode + ars] / currData[type] * 100 | number : '1.0-2' | removeComma}}%</td>
+                        <td class="w-50 align-middle">
+                            <ngb-progressbar type="{{theme}}" [value]="currData[mode + ars]" [max]="currData[type]"></ngb-progressbar>
+                        </td>
+                        <td class="text-right align-bottom font-weight-bold" [ngClass]="{'text-muted small': !currData[mode + ars] }">
+                            {{currData[mode + ars] || 'labels.noData' | translate }}
+                        </td>
+                        <td class="small align-bottom" *ngIf="currData && prevData">
+                            <c19-difference [prevData]="prevData[mode + ars]" [currData]="currData[mode + ars]" [upIsGood]="upIsGood"></c19-difference>
+                        </td>
+                    </tr>
                 </tbody>
-                <tr *ngFor="let ars of arsList">
-                    <td>{{'data.ars.'+ars | translate}}</td>
-                    <td class="align-middle text-right small text-{{theme}}">{{currData[mode + ars] / currData[type] * 100 | number : '1.0-2' | removeComma}}%</td>
-                    <td class="w-50 align-middle">
-                        <ngb-progressbar type="{{theme}}" [value]="currData[mode + ars]" [max]="currData[type]"></ngb-progressbar>
-                    </td>
-                    <td class="text-right align-bottom font-weight-bold" [ngClass]="{'text-muted small': !currData[mode + ars] }">
-                        {{currData[mode + ars] || 'labels.noData' | translate }}
-                    </td>
-                    <td class="small align-bottom" *ngIf="currData && prevData">
-                        <c19-difference [prevData]="prevData[mode + ars]" [currData]="currData[mode + ars]" [upIsGood]="upIsGood"></c19-difference>
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
