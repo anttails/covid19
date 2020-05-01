@@ -16,10 +16,10 @@ export class PercentTableComponent implements OnInit {
   @Input() suffix: string = '';
   @Input() theme: string;
   @Input() translateKey: string;
-  @Input() dataset: number[];
+  @Input() dataset: string[];
   @Input() comparisonPrefix: string;
   //Initally only for sympthons. Kinda homage
-  lstAtchins: number[];
+  lstAtchins: string[];
   prefix: string;
 
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class PercentTableComponent implements OnInit {
   }
 
   getNumber(data: Update, type: string) {
+
     if (this.comparisonPrefix) {
       return data[this.prefix + type + this.suffix] / data[this.comparisonPrefix + type + this.suffix];
     } else {
