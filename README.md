@@ -1,27 +1,32 @@
-# Covid19
+# COVID19 Portugal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.2.
+Página para apresentar os dados mais recentes do surto COVID19 em Portugal, comparando-os com os dados do dia anterior.
 
-## Development server
+Utiliza os dados da [DGS](https://www.dgs.pt/) disponibilidados pelos grandes da [Data Science for Social Good Portugal](https://www.dssg.pt) no seu [repositório](https://github.com/dssg-pt/covid19pt-data/) recorrendo à [API](https://covid19-api.vost.pt) disponibilizada pelos também grandes da [VOST Portugal](https://www.vost.pt).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Frontend desenvolvido em Angular 9 com recurso às bibliotecas ApexCharts, Bootstrap e FontAwesome. 
+Pequeno backend em PHP para evitar problemas de CORS e transformação de dados.
 
-## Code scaffolding
+## Funcionalidades
+* Apresentação dos dados mais recentes e comparação com dados anteriores (actualmente apenas dia anterior)
+    * Pode funcionar sem dados anteriores, não fazendo comparações
+* Análise da distribuição de sintomas
+* Análise detalhada dos casos confirmados, recuperados e óbitos
+    * Por área regional de saúde, em ordem decrescente
+    * Por grupo etário (apenas casos confirmados e óbitos), dados totais + classificados por sexo
+        * Gráficos de distribuição de novos dados
+        * Tabela de dados
+        * Gráficos de frequência relativa
+    * Taxa de letalidade (apenas óbitos), dados em ordem decrescente
+        * Por área regional de saúde
+        * Por grupo etário, dados totais + classificados por sexo
+* 2 idiomas disponíveis: Português e Inglês. Facilmente extensível a mais idiomas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Servidor de desenvolvimento
 
-## Build
+Correr `npm start` para arrancar um servidor de desenvolvimento local em `http://localhost:4200/`. O servidor estará acessível dentro da rede do computador onde é corrido e terá configurado um proxy para utilizar o backend PHP em https://covid19.anteropires.com/api
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Sugestões
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Sugestões são sempre bem-vindas! Não hesitem em utilizar os Issues ou Pull Requests. Desde já peço desculpa por alguma eventual demora a responder ;)
+Ou podem dar-me uma apitadela no [Twitter](https://twitter.com/anttails)!

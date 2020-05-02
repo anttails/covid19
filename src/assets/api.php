@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 include '/home/ant/covid/error.php';
+// Just sets status to Error and sends me a warning email.
 error_reporting(0);
 set_error_handler("errorHandler");
 
@@ -27,7 +28,7 @@ $json = file_get_contents('https://covid19-api.vost.pt/Requests/get_entry/' . $y
 $obj = json_decode($json, true);
 $arr = array();
 
-// Clean up
+// Remove id attributes and transform object to something like last update
 function getLeaf($item, $key, $origKey)
 {
     global $arr;

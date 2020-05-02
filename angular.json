@@ -24,7 +24,7 @@
                         "tsConfig": "tsconfig.app.json",
                         "aot": true,
                         "assets": [
-                            "src/assets"
+                            { "glob": "**/*", "input": "src/assets", "ignore": ["**/logo/*"], "output": "/assets" }
                         ],
                         "styles": [
                             "src/styles.scss"
