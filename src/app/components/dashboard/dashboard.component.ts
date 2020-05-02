@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { VostptService } from 'src/app/services/vostpt.service';
-import { Update, SINTOMASLIST, ARSLIST, AGEGROUPLIST } from 'src/app/models/update.model';
+import { Update, SINTOMASLIST } from 'src/app/models/update.model';
 import { faExclamationTriangle, faSpinner, faVirus, faCross, faThumbsUp, faHospital, faProcedures, faVial, faExclamationCircle, faNotesMedical, faVirusSlash, faHeadSideVirus, faPlaneArrival, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
+import { version } from '../../../../package.json';
 
 @Component({
   selector: 'c19-dashboard',
@@ -43,6 +44,8 @@ export class DashboardComponent implements OnInit {
   sintomasLst: string[] = SINTOMASLIST;
 
   fatalityRate: number;
+
+  version: string = version;
 
   constructor(protected vostptService: VostptService, protected translate: TranslateService) { }
 

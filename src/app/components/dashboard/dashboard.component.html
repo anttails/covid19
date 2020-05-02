@@ -109,8 +109,11 @@
     <c19-detail [currData]="currData" [prevData]="prevData" theme="dark" type="obitos" [icon]="obitos" showLethal="true">
     </c19-detail>
 
-    <div class="row small my-2">
-        <div class="col-12" [innerHTML]="'footer'|translate">
+    <div class="row small my-2 align-items-center">
+        <div class="col-auto mr-auto" [innerHTML]="'footer'|translate">
+        </div>
+        <div class="col-auto text-muted">
+            v{{version}}
         </div>
     </div>
 
