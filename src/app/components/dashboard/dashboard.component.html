@@ -109,11 +109,13 @@
     <c19-detail [currData]="currData" [prevData]="prevData" theme="dark" type="obitos" [icon]="obitos" showLethal="true">
     </c19-detail>
 
-    <div class="row small my-2 align-items-center">
-        <div class="col-auto mr-auto" [innerHTML]="'footer'|translate">
+    <div class="row my-2 align-items-center">
+        <div class="col-auto small mr-auto" [innerHTML]="'footer'|translate">
         </div>
         <div class="col-auto">
-            <a class="text-muted" title="GitHub" href="https://github.com/anttails/covid19" target="_blank">v{{version}}</a>
+            <a class="text-muted" title="GitHub" href="https://github.com/anttails/covid19" target="_blank">
+                <fa-icon [icon]="gitCoisoIcon"></fa-icon>
+                v{{version}}</a>
         </div>
     </div>
 

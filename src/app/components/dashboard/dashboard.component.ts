@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VostptService } from 'src/app/services/vostpt.service';
 import { Update, SINTOMASLIST } from 'src/app/models/update.model';
 import { faExclamationTriangle, faSpinner, faVirus, faCross, faThumbsUp, faHospital, faProcedures, faVial, faExclamationCircle, faNotesMedical, faVirusSlash, faHeadSideVirus, faPlaneArrival, faUsers, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { TranslateService } from '@ngx-translate/core';
 import { version } from '../../../../package.json';
 
@@ -40,6 +41,8 @@ export class DashboardComponent implements OnInit {
   transmissaoImportada: IconDefinition = faPlaneArrival;
 
   sintomas: IconDefinition = faHeadSideVirus;
+
+  gitCoisoIcon: IconDefinition = faGithub;
 
   sintomasLst: string[] = SINTOMASLIST;
 
