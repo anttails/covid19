@@ -57,10 +57,13 @@ export class PercentTableComponent implements OnInit {
   }
 
   private setupNumber(obj: Update, key: string) {
-    if (this.comparisonPrefix) {
-      return (obj[this.prefix + key + this.suffix] + (this.suffix2 ? obj[this.prefix + key + this.suffix2] : 0)) / (obj[this.comparisonPrefix + key + this.suffix] + (this.suffix2 ? obj[this.comparisonPrefix + key + this.suffix2] : 0));
+    if (obj) {
+      if (this.comparisonPrefix) {
+        return (obj[this.prefix + key + this.suffix] + (this.suffix2 ? obj[this.prefix + key + this.suffix2] : 0)) / (obj[this.comparisonPrefix + key + this.suffix] + (this.suffix2 ? obj[this.comparisonPrefix + key + this.suffix2] : 0));
+      }
+      return obj[this.prefix + key + this.suffix] + (this.suffix2 ? obj[this.prefix + key + this.suffix2] : 0);
     }
-    return obj[this.prefix + key + this.suffix] + (this.suffix2 ? obj[this.prefix + key + this.suffix2] : 0);
+    return 0;
 
   }
 }
