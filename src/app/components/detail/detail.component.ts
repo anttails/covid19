@@ -32,8 +32,8 @@ export class DetailComponent implements OnInit {
   showArs: boolean = false;
   showAge: boolean = false;
 
-  arsList: string[] = ARSLIST;
-  ageGroup: string[] = AGEGROUPLIST;
+  arsList: string[] = [...ARSLIST];
+  ageGroup: string[] = [...AGEGROUPLIST];
 
   ageChartM: number[] = [];
   ageChartF: number[] = [];
