@@ -13,8 +13,8 @@
                 {{ currData }}
                 <ng-container *ngIf="total"><small>/ {{total}}</small></ng-container>
                 </span>
-                <span [ngClass]="{'small': small}">
-                    <c19-difference *ngIf="currData && prevData" [prevData]="prevData" [currData]="currData" [upIsGood]="upIsGood">
+                <span *ngIf="showDifference" [ngClass]="{'small': small}">
+                    <c19-difference [prevData]="prevData" [currData]="currData" [upIsGood]="upIsGood">
                     </c19-difference>
                 </span>
             </div>

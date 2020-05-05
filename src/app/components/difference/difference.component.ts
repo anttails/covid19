@@ -22,7 +22,7 @@ export class DifferenceComponent implements OnInit {
     if (this.percentMode) {
       this.dif = this.dif * 100;
     } else {
-      this.percent = (this.currData - this.prevData) / this.prevData * 100;
+      this.percent = this.prevData ? ((this.currData - this.prevData) / this.prevData * 100) : 100;
     }
   }
 

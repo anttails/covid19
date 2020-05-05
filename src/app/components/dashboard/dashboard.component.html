@@ -25,16 +25,16 @@
     <div class="row align-items-stretch">
         <div class="col-12 col-sm-6 col-md-8 d-flex flex-column">
             <div class="row flex-fill p-2 pr-sm-2 pb-sm-2 pt-sm-2 pl-sm-3">
-                <c19-big-card [currData]="currData?.confirmados" [prevData]="prevData?.confirmados" [icon]="confirmados" text="confirmados" theme="primary" hueg="true" clickable="true">
+                <c19-big-card [currData]="currData?.confirmados" [prevData]="prevData?.confirmados" [icon]="confirmados" text="confirmados" theme="primary" hueg="true" clickable="true" [showDifference]="prevData">
                 </c19-big-card>
             </div>
             <div class="row flex-fill p-2 pr-sm-2 pt-sm-2 pb-sm-2 pl-sm-3 align-items-stretch">
                 <div class="col-12 col-md-6 p-0 pb-2 pb-md-0 pr-md-2 d-flex">
-                    <c19-big-card [currData]="currData?.internados - currData?.internados_uci" [prevData]="prevData?.internados - prevData?.internados_uci" [icon]="internados" [total]="currData?.internados" text="internados" theme="info" small="true">
+                    <c19-big-card [currData]="currData?.internados - currData?.internados_uci" [prevData]="prevData?.internados - prevData?.internados_uci" [icon]="internados" [total]="currData?.internados" text="internados" theme="info" small="true" [showDifference]="prevData">
                     </c19-big-card>
                 </div>
                 <div class="col-12 col-md-6 p-0 pt-2 pt-md-0 pl-md-2 d-flex">
-                    <c19-big-card [currData]="currData?.internados_uci" [prevData]="prevData?.internados_uci" [icon]="uci" [total]="currData?.internados" text="internados_uci" theme="danger" small="true">
+                    <c19-big-card [currData]="currData?.internados_uci" [prevData]="prevData?.internados_uci" [icon]="uci" [total]="currData?.internados" text="internados_uci" theme="danger" small="true" [showDifference]="prevData">
                     </c19-big-card>
                 </div>
             </div>
@@ -42,11 +42,11 @@
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex flex-column">
             <div class="row flex-fill p-2 pl-sm-2 pb-sm-2 pt-sm-2 pr-sm-3">
-                <c19-big-card [currData]="currData?.recuperados" [prevData]="prevData?.recuperados" [icon]="recuperados" text="recuperados" theme="success" upIsGood="true" clickable="true">
+                <c19-big-card [currData]="currData?.recuperados" [prevData]="prevData?.recuperados" [icon]="recuperados" text="recuperados" theme="success" upIsGood="true" clickable="true" [showDifference]="prevData">
                 </c19-big-card>
             </div>
             <div class=" row flex-fill p-2 pl-sm-2 pt-sm-2 pb-sm-2 pr-sm-3">
-                <c19-big-card [currData]="currData?.obitos" [prevData]="prevData?.obitos" [icon]="obitos" text="obitos" theme="dark" clickable="true" [note]="fatalityRate" [noteParam]="fatalityRate | number : '1.0-2'" noteLink="lethal">
+                <c19-big-card [currData]="currData?.obitos" [prevData]="prevData?.obitos" [icon]="obitos" text="obitos" theme="dark" clickable="true" [note]="fatalityRate" [noteParam]="fatalityRate | number : '1.0-2'" noteLink="lethal" [showDifference]="prevData">
                 </c19-big-card>
             </div>
         </div>
@@ -54,27 +54,27 @@
 
     <div class="row align-items-stretch mt-2">
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3">
-            <c19-big-card [currData]="currData?.lab" [prevData]="prevData?.lab" [icon]="lab" text="lab" theme="info" small="true">
+            <c19-big-card [currData]="currData?.lab" [prevData]="prevData?.lab" [icon]="lab" text="lab" theme="info" small="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pr-sm-3 pr-md-2">
-            <c19-big-card [currData]="currData?.vigilancia" [prevData]="prevData?.vigilancia" [icon]="vigilancia" text="vigilancia" theme="danger" small="true">
+            <c19-big-card [currData]="currData?.vigilancia" [prevData]="prevData?.vigilancia" [icon]="vigilancia" text="vigilancia" theme="danger" small="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3 pl-md-2 pr-md-3">
-            <c19-big-card [currData]="currData?.n_confirmados" [prevData]="prevData?.n_confirmados" [icon]="nConfirmados" text="n_confirmados" theme="success" small="true" upIsGood="true">
+            <c19-big-card [currData]="currData?.n_confirmados" [prevData]="prevData?.n_confirmados" [icon]="nConfirmados" text="n_confirmados" theme="success" small="true" upIsGood="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-2 pl-md-3 pr-sm-3 pr-md-2">
-            <c19-big-card [currData]="currData?.suspeitos" [prevData]="prevData?.suspeitos" [icon]="suspeitos" text="suspeitos" theme="primary" small="true" note="true">
+            <c19-big-card [currData]="currData?.suspeitos" [prevData]="prevData?.suspeitos" [icon]="suspeitos" text="suspeitos" theme="primary" small="true" note="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pl-sm-3 pl-md-2">
-            <c19-big-card [currData]="currData?.transmissao_importada" [prevData]="prevData?.transmissao_importada" [icon]="transmissaoImportada" text="transmissao_importada" theme="primary" small="true">
+            <c19-big-card [currData]="currData?.transmissao_importada" [prevData]="prevData?.transmissao_importada" [icon]="transmissaoImportada" text="transmissao_importada" theme="primary" small="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
         <div class="col-12 col-sm-6 col-md-4 d-flex p-2 pr-sm-3">
-            <c19-big-card [currData]="currData?.cadeias_transmissao" [prevData]="prevData?.cadeias_transmissao" [icon]="cadeiasTransmissao" text="cadeias_transmissao" theme="danger" small="true">
+            <c19-big-card [currData]="currData?.cadeias_transmissao" [prevData]="prevData?.cadeias_transmissao" [icon]="cadeiasTransmissao" text="cadeias_transmissao" theme="danger" small="true" [showDifference]="prevData">
             </c19-big-card>
         </div>
     </div>

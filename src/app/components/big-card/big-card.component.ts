@@ -22,6 +22,7 @@ export class BigCardComponent implements OnInit {
   @Input() noteParam: string;
   @Input() noteLink: string;
   @Input() clickable = false;
+  @Input() showDifference = true;
 
   constructor(protected pageScrollService: PageScrollService) { }
 

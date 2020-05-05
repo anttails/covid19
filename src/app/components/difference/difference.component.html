@@ -1,4 +1,4 @@
-<ng-container *ngIf="prevData && currData">
+<ng-container *ngIf="currData">
     <ng-container *ngIf="(dif >= 0.01 || dif <= -0.01) else noChange">
         <span class="text-nowrap">
         <fa-icon [icon]="getIcon()" [ngClass]="{'text-success': (upIsGood && dif > 0) || (!upIsGood && dif < 0) ,'text-danger': (!upIsGood && dif > 0) || (upIsGood && dif < 0), 'text-muted': dif === 0}"></fa-icon>
