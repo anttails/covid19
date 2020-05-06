@@ -61,7 +61,7 @@
         },
         "dataUntil": "Portugal's data until {{date}} obtained from <b><a href=\"https://github.com/dssg-pt/covid19pt-data\" target=\"_blank\">DSSGP</a>'s</b> repository via <b><a href=\"https://covid19-api.vost.pt/\" target=\"_blank\">API VOST PT</a></b>.",
         "detail": {
-            "helth": "By health area",
+            "helth": "By regional health administration",
             "ageGroup": {
                 "dataTable": "Data table",
                 "newData": "New data distribution",
